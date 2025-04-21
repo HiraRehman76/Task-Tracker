@@ -1,0 +1,43 @@
+<div class="add-task-container" *ngIf="showAddTask">
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="add-task-form">
+    <div class="form-group">
+      <label for="text">Task</label>
+      <input 
+        type="text" 
+        id="text" 
+        formControlName="text" 
+        placeholder="Add Task"
+        class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="day">Day & Time</label>
+      <input 
+        type="text" 
+        id="day" 
+        formControlName="day" 
+        placeholder="Add Day & Time"
+        class="form-control">
+    </div>
+    <div class="form-group checkbox">
+      <label>
+        <input 
+          type="checkbox" 
+          formControlName="reminder">
+        Set Reminder
+      </label>
+    </div>
+    <div class="form-actions">
+      <app-button 
+        color="red" 
+        text="Close" 
+        (btnClick)="onCloseClick()">
+      </app-button>
+      <app-button 
+        type="submit"
+        color="green" 
+        text="Save Task"
+        [disabled]="!taskForm.valid">
+      </app-button>
+    </div>
+  </form>
+</div> 

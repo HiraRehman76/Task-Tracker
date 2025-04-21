@@ -1,1 +1,9 @@
-<button [ngStyle]="{'background-color':color}" class="btn" (click)="onClick()">{{text}}</button>
+<button 
+  [ngStyle]="{'background-color':color}" 
+  class="btn" 
+  (click)="onClick()"
+  [disabled]="disabled"
+  [type]="type">
+  <fa-icon *ngIf="showIcon" [icon]="faPlus" class="btn-icon"></fa-icon>
+  {{text}}
+</button>

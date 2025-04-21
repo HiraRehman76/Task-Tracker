@@ -1,1 +1,16 @@
-<app-task-item *ngFor="let task of tasks" [task]="task"></app-task-item>
+<div class="tasks-container">
+  <div *ngIf="tasks.length > 0; else noTasks" class="tasks-list">
+    <app-task-item 
+      *ngFor="let task of tasks" 
+      [task]="task"
+      (onDelete)="deleteTask($event)"
+      (onToggle)="toggleReminder($event)">
+    </app-task-item>
+  </div>
+  <ng-template #noTasks>
+    <div class="no-tasks">
+      <fa-icon [icon]="faClipboardList" class="empty-icon"></fa-icon>
+      <p>No tasks to show. Add a new task to get started!</p>
+    </div>
+  </ng-template>
+</div>

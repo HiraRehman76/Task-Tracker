@@ -1,4 +1,9 @@
 <div class="container">
-  <app-header></app-header>
+  <app-header (onAddTask)="toggleAddTask()"></app-header>
+  <app-add-task 
+    [showAddTask]="showAddTask"
+    (onAddTask)="addTask($event)"
+    (onClose)="toggleAddTask()">
+  </app-add-task>
   <app-tasks></app-tasks>
 </div>
